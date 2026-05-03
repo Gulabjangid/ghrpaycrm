@@ -10,6 +10,6 @@ export interface Visit {
   status: VisitStatus;
   notes?: string;
   feedback?: string;
-  post_tour_form_filled: boolean;
+  post_tour_form_filled?: boolean;
   created_at: string;
 }

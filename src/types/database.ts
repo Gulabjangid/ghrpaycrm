@@ -251,6 +251,8 @@ export type Database = {
           locality: string | null
           name: string
           property_type: string | null
+          rent_max: number | null
+          rent_min: number | null
           rent_range: unknown
           total_units: number | null
           vacant_units: number | null
@@ -266,6 +268,8 @@ export type Database = {
           locality?: string | null
           name: string
           property_type?: string | null
+          rent_max?: number | null
+          rent_min?: number | null
           rent_range?: unknown
           total_units?: number | null
           vacant_units?: number | null
@@ -281,6 +285,8 @@ export type Database = {
           locality?: string | null
           name?: string
           property_type?: string | null
+          rent_max?: number | null
+          rent_min?: number | null
           rent_range?: unknown
           total_units?: number | null
           vacant_units?: number | null
