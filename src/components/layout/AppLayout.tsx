@@ -10,28 +10,11 @@ import { LeadDetailSheet } from '@/components/leads/LeadDetail';
 export const AppLayout: React.FC = () => {
   const init = useDataStore(state => state.init);
   const navigate = useNavigate();
-  const [checking, setChecking] = useState(true);
+  const [checking, setChecking] = useState(false);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) {
-        navigate('/auth');
-      } else {
-        init();
-      }
-      setChecking(false);
-    });
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (!session) {
-        navigate('/auth');
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, [init, navigate]);
+    init();
+  }, [init]);
 
   if (checking) return null;
 

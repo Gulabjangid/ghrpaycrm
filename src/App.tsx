@@ -11,7 +11,6 @@ const Leads = lazy(() => import('@/pages/Leads').then(m => ({ default: m.Leads }
 const Schedule = lazy(() => import('@/pages/Schedule').then(m => ({ default: m.Schedule })));
 const Inbox = lazy(() => import('@/pages/Inbox').then(m => ({ default: m.Inbox })));
 const Properties = lazy(() => import('@/pages/Properties').then(m => ({ default: m.Properties })));
-const Auth = lazy(() => import('@/pages/Auth').then(m => ({ default: m.Auth })));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,11 +36,6 @@ export const App: React.FC = () => {
       <BrowserRouter>
         <Toaster position="bottom-right" theme="dark" richColors />
         <Routes>
-          <Route path="/auth" element={
-            <Suspense fallback={<FallbackLoader />}>
-              <Auth />
-            </Suspense>
-          } />
           <Route path="/" element={<AppLayout />}>
             <Route index element={<Navigate to="/dashboard" replace />} />
             <Route path="dashboard" element={

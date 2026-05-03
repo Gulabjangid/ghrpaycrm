@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard, Kanban, Users, CalendarDays, Inbox, Building2,
-  UsersRound, Settings, ChevronLeft, ChevronRight, LogOut
+  UsersRound, Settings, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { useUIStore } from '@/store/uiStore';
 import { useDataStore } from '@/lib/dataStore';
@@ -213,27 +213,6 @@ export const Sidebar: React.FC = () => {
                 {agent ? agent.role : ''}
               </div>
             </div>
-          )}
-          {!collapsed && (
-            <button
-              onClick={async () => {
-                await import('@/lib/supabase').then(m => m.supabase.auth.signOut());
-                navigate('/auth');
-              }}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: 'var(--color-text-secondary)',
-                cursor: 'pointer',
-                padding: '4px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-              title="Log Out"
-            >
-              <LogOut size={16} />
-            </button>
           )}
         </div>
       </div>
